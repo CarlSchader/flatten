@@ -51,9 +51,13 @@ fn main() {
             if count.is_none() {
                 seen.insert(file_name.into(), 1);
             } else {
-                let extension = path.extension().unwrap().to_str().unwrap();
+                // if extension does not exist save empty string
+                let extension: String = match path.extension() {
+                    Some(s) => ".".to_owned() + s.to_str().unwrap(),
+                    None => String::from(""),
+                };
                 let stem = path.file_stem().unwrap().to_str().unwrap();
-                new_file_name = stem.to_owned() + SUFFIX + count.unwrap().to_string().as_str() + "." + extension;
+                new_file_name = stem.to_owned() + SUFFIX + count.unwrap().to_string().as_str() + &extension;
                 seen.insert(file_name.into(), count.unwrap() + 1);
             }
             
