@@ -2,7 +2,7 @@ Sure, here's a README.md file for your project:
 
 # Flatten
 
-Flatten is a Rust command-line tool that copies files from multiple input directories into a single output directory, resolving any naming conflicts by adding a suffix to the file name before the extension.
+Flatten is a Rust command-line tool that recursively copies all files from multiple input directories into a single output directory, resolving any naming conflicts by adding a suffix to the file name before the extension.
 
 ## Usage
 
